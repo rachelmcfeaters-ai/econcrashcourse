@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Econ 10A Crash Course</title>
+<meta name="description" content="Econ 10A: The Crash Course — a study guide made by a UCSB peer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,900;1,6..96,400;1,6..96,700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  /* ===== EDIT THESE ===== */
+  /* Links are set in the HTML below — search for "EDIT" */
+
+  :root {
+    --ink: #111111;
+    --muted: #6b6b6b;
+    --paper: #ffffff;
+    --line: #e6e6e6;
+    --card: #ffffff;
+    --accent: #3d95ce; /* Venmo blue */
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Outfit", system-ui, sans-serif;
+    line-height: 1.4;
+    overflow-x: hidden;
+  }
+  .serif { font-family: "Bodoni Moda", Georgia, serif; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; position: relative; }
+  section { position: relative; }
+
+  /* ===== HERO ===== */
+  .hero { min-height: 60vh; display: grid; place-items: center; text-align: center; padding: 64px 0; }
+  .banner { width: 100%; max-width: 760px; height: auto; display: block; margin: 0 auto; border-radius: 18px; box-shadow: 0 14px 40px rgba(0,0,0,.12); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .hero h1 { line-height: .95; }
+  .hero .l1 { font-family: "Bodoni Moda", serif; font-weight: 900; font-size: clamp(3rem, 11vw, 6.5rem); letter-spacing: -.02em; display: block; }
+  .hero .l2 { font-weight: 800; font-size: clamp(2.6rem, 9.5vw, 5.6rem); display: block; letter-spacing: -.01em; }
+  .hero .badge {
+    display: inline-block; margin-top: 28px; padding: 8px 18px; border: 1.5px solid #255026; color: #255026;
+    border-radius: 999px; font-size: .9rem; letter-spacing: .08em; text-transform: uppercase;
+  }
+
+  /* ===== HOW TO ===== */
+  .howto { padding: 60px 0 40px; }
+  .howto h2 {
+    font-family: "Bodoni Moda", serif; font-weight: 400; text-transform: uppercase;
+    font-size: clamp(2.2rem, 7.5vw, 4.6rem); line-height: 1.02; letter-spacing: -.02em;
+  }
+  .howto h2 b { font-weight: 900; }
+
+  /* ===== STEPS ===== */
+  .steps { padding: 60px 0; overflow: hidden; }
+  .section-title { font-family: "Bodoni Moda", serif; font-style: italic; font-weight: 400; font-size: clamp(2.6rem, 8vw, 4.4rem); letter-spacing: -.02em; margin-bottom: 28px; }
+  ol.step-list { list-style: none; counter-reset: s; display: grid; gap: 26px; }
+  ol.step-list li { counter-increment: s; display: grid; grid-template-columns: 2.4rem 1fr; font-weight: 800; font-size: clamp(1.25rem, 3.6vw, 1.9rem); line-height: 1.2; }
+  ol.step-list li::before { content: counter(s) "."; }
+  ol.step-list a { color: inherit; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+  ol.step-list a:hover { text-decoration-thickness: 4px; }
+  .handle { white-space: nowrap; }
+  .sub { display: block; font-weight: 400; font-style: italic; font-size: .9rem; color: var(--muted); margin-top: 4px; }
+
+  /* ===== GET ON BOARD ===== */
+  .board { padding: 60px 0; overflow: hidden; }
+  .board-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+  .board .section-title { margin: 0; }
+  .board p.lead { font-size: 1.1rem; color: var(--muted); margin-top: 14px; max-width: 30ch; }
+  .venmo-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06); text-align: center; max-width: 360px; justify-self: end; width: 100%;
+  }
+  .venmo-card .name { font-size: 1.4rem; font-weight: 600; }
+  .venmo-card .user { color: var(--muted); font-size: .95rem; margin-bottom: 16px; }
+  #qr { display: block; width: 220px; height: 220px; margin: 0 auto 16px; image-rendering: pixelated; }
+  .venmo-word { font-weight: 800; font-style: italic; font-size: 2.2rem; color: var(--accent); letter-spacing: -.03em; }
+  .btn {
+    display: inline-block; margin-top: 14px; padding: 12px 22px; border-radius: 999px;
+    background: var(--ink); color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .btn:hover { opacity: .85; }
+
+  /* ===== NOTE ===== */
+  .note { padding: 60px 0 100px; overflow: hidden; }
+  .note-grid { display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: start; }
+  .note h3 { font-family: "Bodoni Moda", serif; font-weight: 400; font-size: clamp(2.4rem, 7vw, 3.6rem); letter-spacing: -.03em; }
+  .photo { border: 14px solid #000; background: #ddd; aspect-ratio: 3 / 4; max-width: 460px; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .note p { margin-top: 12px; color: #333; max-width: 46ch; }
+
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 0 24px 40px; }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 680px) {
+    .wrap { padding: 0 16px; }
+    .board-grid, .note-grid { grid-template-columns: 1fr; }
+    .venmo-card { justify-self: center; }
+    ol.step-list li { grid-template-columns: 2rem 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <h1 class="sr-only">Econ 10A Crash Course</h1>
+    <img class="banner" src="banner.png" alt="ECON10A Crash Course" width="722" height="324">
+    <span class="badge">Made by a UCSB peer</span>
+  </div>
+</section>
+
+<!-- ===== HOW TO ===== -->
+<section class="howto">
+  <div class="wrap">
+    <h2><b>How</b> to get on board the <b>Econ10A</b> wave</h2>
+  </div>
+</section>
+
+<!-- ===== STEPS ===== -->
+<section class="steps">
+  <div class="wrap">
+    <h2 class="section-title">Steps</h2>
+    <ol class="step-list">
+      <!-- EDIT: replace the href below with your real Google Drive "request access" link -->
+      <li><span>Request access to <a href="https://drive.google.com/" target="_blank" rel="noopener">Econ Drive</a></span></li>
+      <li><span>Use your preferred email &amp; request access</span></li>
+      <li><span>Send $10 on Venmo <span class="handle">(<a href="https://venmo.com/u/rasinbagelz" target="_blank" rel="noopener">@rasinbagelz</a>)</span>
+        <span class="sub">(&amp; include your email/name so I know who you are)</span></span></li>
+      <li><span>From here: I’ll give you shared access to the full crash course Google Drive</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== GET ON BOARD ===== -->
+<section class="board" id="pay">
+  <div class="wrap board-grid">
+    <div>
+      <h2 class="section-title">Get on board</h2>
+      <p class="lead">Scan the code or tap the button to pay on Venmo.</p>
+    </div>
+    <div class="venmo-card">
+      <div class="name">Rasin Bagelz</div>
+      <div class="user">@rasinbagelz</div>
+      <img id="qr" src="venmo-qr.png" alt="QR code linking to Venmo @rasinbagelz" width="220" height="220">
+      <div class="venmo-word">venmo</div>
+      <a class="btn" href="https://venmo.com/u/rasinbagelz" target="_blank" rel="noopener">Open in Venmo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOTE ===== -->
+<section class="note">
+  <div class="wrap note-grid">
+    <h3>NOTE!</h3>
+    <div>
+      <div class="photo"><img src="coastline.jpg" alt="Golden-hour view of the bluffs and beach along the UCSB coastline" loading="lazy"></div>
+      <p>This guide is still in the baby phase, and your feedback will help me improve the course. Thank you for supporting a UCSB peer.</p>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="yr"></span> Econ 10A Crash Course · Not affiliated with UC Santa Barbara</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
